@@ -14,7 +14,7 @@ export const updateProduct= async (req,res)=>{
     const id=req.params.id;
     try {
         const resp= await productModel.findByIdAndUpdate(id,req.body,{new:true})
-        res.status(200).json(resp)
+        return res.status(200).send("Product updated!")
     } catch (error) {
         console.log(error)
     }
@@ -24,7 +24,7 @@ export const deleteProduct= async (req,res)=>{
     const id=req.params.id;
     try {
         const resp= await productModel.findByIdAndDelete(id)
-        res.status(200).json(resp)
+        res.status(200).send("Product Deleted!!")
     } catch (error) {
         console.log(error)
     }
